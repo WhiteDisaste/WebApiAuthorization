@@ -24,6 +24,6 @@ namespace WebApiAuthorization.Models
         public string RoleUser { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        internal virtual ICollection<User> User { get; set; }
+        public virtual ICollection<User> User { get; set; }
     }
 }

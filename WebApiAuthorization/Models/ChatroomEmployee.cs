@@ -17,8 +17,8 @@ namespace WebApiAuthorization.Models
         public int Id { get; set; }
         public Nullable<int> IdChatroom { get; set; }
         public Nullable<int> IdUser { get; set; }
-
-        internal virtual Chatroom Chatroom { get; set; }
-        internal virtual User User { get; set; }
+    
+        public virtual Chatroom Chatroom { get; set; }
+        public virtual User User { get; set; }
     }
 }

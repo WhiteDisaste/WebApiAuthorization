@@ -13,47 +13,44 @@ using WebApiAuthorization.Models;
 
 namespace WebApiAuthorization.Controllers
 {
-    public class ChatroomsController : ApiController
+    public class ChatMessagesController : ApiController
     {
         private AppDeminEntities db = new AppDeminEntities();
 
-        // GET: api/Chatrooms
-
-        [Route("api/Chatrooms")]
-        public IHttpActionResult GetChatroom()
+        // GET: api/ChatMessages
+        public IHttpActionResult GetChatMessage()
         {
-            return Ok(db.Chatroom.Include(i => i.ChatMessage).ToList()
-                .ConvertAll(o => new ResponceChatRoom(o)));
+            return Ok(db.ChatMessage.ToList().ConvertAll(i => new ResponceChatMessage(i)));
         }
 
-        // GET: api/Chatrooms/5
-        [ResponseType(typeof(Chatroom))]
-        public IHttpActionResult GetChatroom(int id)
+        // GET: api/ChatMessages/5
+        [ResponseType(typeof(ChatMessage))]
+        public IHttpActionResult GetChatMessage(int id)
         {
-            Chatroom chatroom = db.Chatroom.Find(id);
-            if (chatroom == null)
+            ChatMessage chatMessage = db.ChatMessage.Find(id);
+            if (chatMessage == null)
             {
                 return NotFound();
             }
 
-            return Ok(chatroom);
+            return Ok(chatMessage);
         }
 
-        // PUT: api/Chatrooms/5
+        // PUT: api/ChatMessages/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutChatroom(int id, Chatroom chatroom)
+        public IHttpActionResult PutChatMessage(int id, ChatMessage chatMessage)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != chatroom.Id)
+            if (id != chatMessage.Id)
             {
                 return BadRequest();
             }
 
-            db.Entry(chatroom).State = EntityState.Modified;
+            db.Entry(chatMessage).State = EntityState.Modified;
 
             try
             {
@@ -61,7 +58,7 @@ namespace WebApiAuthorization.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ChatroomExists(id))
+                if (!ChatMessageExists(id))
                 {
                     return NotFound();
                 }
@@ -74,35 +71,35 @@ namespace WebApiAuthorization.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Chatrooms
-        [ResponseType(typeof(Chatroom))]
-        public IHttpActionResult PostChatroom(Chatroom chatroom)
+        // POST: api/ChatMessages
+        [ResponseType(typeof(ChatMessage))]
+        public IHttpActionResult PostChatMessage(ChatMessage chatMessage)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.Chatroom.Add(chatroom);
+            db.ChatMessage.Add(chatMessage);
             db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = chatroom.Id }, chatroom);
+            return CreatedAtRoute("DefaultApi", new { id = chatMessage.Id }, chatMessage);
         }
 
-        // DELETE: api/Chatrooms/5
-        [ResponseType(typeof(Chatroom))]
-        public IHttpActionResult DeleteChatroom(int id)
+        // DELETE: api/ChatMessages/5
+        [ResponseType(typeof(ChatMessage))]
+        public IHttpActionResult DeleteChatMessage(int id)
         {
-            Chatroom chatroom = db.Chatroom.Find(id);
-            if (chatroom == null)
+            ChatMessage chatMessage = db.ChatMessage.Find(id);
+            if (chatMessage == null)
             {
                 return NotFound();
             }
 
-            db.Chatroom.Remove(chatroom);
+            db.ChatMessage.Remove(chatMessage);
             db.SaveChanges();
 
-            return Ok(chatroom);
+            return Ok(chatMessage);
         }
 
         protected override void Dispose(bool disposing)
@@ -114,9 +111,9 @@ namespace WebApiAuthorization.Controllers
             base.Dispose(disposing);
         }
 
-        private bool ChatroomExists(int id)
+        private bool ChatMessageExists(int id)
         {
-            return db.Chatroom.Count(e => e.Id == id) > 0;
+            return db.ChatMessage.Count(e => e.Id == id) > 0;
         }
     }
 }

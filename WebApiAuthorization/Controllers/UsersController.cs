@@ -91,7 +91,7 @@ namespace WebApiAuthorization.Controllers
         /// </summary>
         /// <param name="data">данные пользователя</param>
         /// <returns></returns>
-        [Route("api/Login")]
+        [Route("api/Users")]
         [ResponseType(typeof(ResponceEmployee))]
         public IHttpActionResult Login([FromBody] userData data)
         {

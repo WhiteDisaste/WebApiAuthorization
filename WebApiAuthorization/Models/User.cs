@@ -28,9 +28,9 @@ namespace WebApiAuthorization.Models
         public Nullable<int> IdRole { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        internal virtual ICollection<ChatMessage> ChatMessage { get; set; }
+        public virtual ICollection<ChatMessage> ChatMessage { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        internal virtual ICollection<ChatroomEmployee> ChatroomEmployee { get; set; }
-        internal virtual Role Role { get; set; }
+        public virtual ICollection<ChatroomEmployee> ChatroomEmployee { get; set; }
+        public virtual Role Role { get; set; }
     }
 }
