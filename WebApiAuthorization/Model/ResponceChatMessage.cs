@@ -23,6 +23,6 @@ namespace WebApiAuthorization.Model
         public string TextMessage { get; set; }
         public DateTime DateTime { get; set; } //может быть NULL
 
-        public string TakeMessage;
+        public string TakeMessage { get; set; }
     }
 }
