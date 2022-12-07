@@ -12,11 +12,11 @@ namespace WebApiAuthorization.Model
         {
             Id = chatroom.Id;
             Topic = chatroom.Topic;
-            lastMessage = chatroom.GetLastMessage;
+            GetLastMessage = chatroom.LastMessage;
         }
 
         public int Id { get; set; }
         public string Topic { get; set; }
-        public string lastMessage { get; set; } = null;
+        public string GetLastMessage { get; set; }
     }
 }

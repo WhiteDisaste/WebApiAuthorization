@@ -8,16 +8,15 @@ using System.Web;
 namespace WebApiAuthorization.Models
 {
     public partial class Chatroom
-    {
-        private AppDeminEntities db = new AppDeminEntities();
-        public string GetLastMessage
+    {    
+        public string LastMessage
         {
             get
             {
                 string message = "No";
                 try
                 {
-                    message = db.ChatMessage.LastOrDefault()?.TextMessage ?? "No message";                    
+                    message = ChatMessage.LastOrDefault()?.TextMessage ?? "No message";                    
                     return message;
                 }
                 catch
