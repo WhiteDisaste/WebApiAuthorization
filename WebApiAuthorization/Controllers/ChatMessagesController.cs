@@ -6,6 +6,7 @@ using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using WebApiAuthorization.Model;
@@ -15,7 +16,15 @@ namespace WebApiAuthorization.Controllers
 {
     public class ChatMessagesController : ApiController
     {
-        private AppDeminEntities db = new AppDeminEntities();
+        private user18Entities db = new user18Entities();
+
+        public class DataMessage
+        {
+            public string User { get; set; }
+            public string ChatRoom { get; set; }
+            public string TextMessage { get; set; }
+        }
+
 
         // GET: api/ChatMessages
         public IHttpActionResult GetChatMessage()
@@ -34,6 +43,16 @@ namespace WebApiAuthorization.Controllers
             }
 
             return Ok(chatMessage);
+        }
+
+        [HttpPost]
+        [Route("api/ChatMessages/send-message")]
+        public async Task<IHttpActionResult> NewMessage([FromBody] DataMessage message)
+        {
+            ChatMessage chatMessage = new ChatMessage(message);
+            db.ChatMessage.Add(chatMessage);
+            return Ok(db.SaveChangesAsync());
+
         }
 
         // PUT: api/ChatMessages/5

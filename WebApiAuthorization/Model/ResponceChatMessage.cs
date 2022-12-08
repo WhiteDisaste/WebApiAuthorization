@@ -22,7 +22,7 @@ namespace WebApiAuthorization.Model
         public int IdChatRoom { get; set; } //может быть NULL
         public string TextMessage { get; set; }
         public DateTime DateTime { get; set; } //может быть NULL
-
+        public string SendMessage { get; set; }
         public string TakeMessage { get; set; }
     }
 }

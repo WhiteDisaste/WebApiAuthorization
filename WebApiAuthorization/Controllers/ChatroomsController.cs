@@ -15,7 +15,7 @@ namespace WebApiAuthorization.Controllers
 {
     public class ChatroomsController : ApiController
     {
-        private AppDeminEntities db = new AppDeminEntities();
+        private user18Entities db = new user18Entities();
 
         // GET: api/Chatrooms
 

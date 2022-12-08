@@ -25,8 +25,8 @@ namespace WebApiAuthorization.Models
         public string Topic { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ChatMessage> ChatMessage { get; set; }
+        internal virtual ICollection<ChatMessage> ChatMessage { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ChatroomEmployee> ChatroomEmployee { get; set; }
+        internal virtual ICollection<ChatroomEmployee> ChatroomEmployee { get; set; }
     }
 }

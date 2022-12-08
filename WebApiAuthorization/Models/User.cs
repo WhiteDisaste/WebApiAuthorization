@@ -31,6 +31,6 @@ namespace WebApiAuthorization.Models
         public virtual ICollection<ChatMessage> ChatMessage { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ChatroomEmployee> ChatroomEmployee { get; set; }
-        public virtual Role Role { get; set; }
+        internal virtual Role Role { get; set; }
     }
 }

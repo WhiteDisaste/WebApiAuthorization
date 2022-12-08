@@ -15,7 +15,7 @@ namespace WebApiAuthorization.Controllers
 {
     public class UsersController : ApiController
     {
-        private AppDeminEntities db = new AppDeminEntities();
+        private user18Entities db = new user18Entities();
 
         // GET: api/Users
         public IQueryable<User> GetUser()

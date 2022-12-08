@@ -20,7 +20,8 @@ namespace WebApiAuthorization.Models
         public string TextMessage { get; set; }
         public Nullable<System.DateTime> DateTime { get; set; }
     
-        public virtual Chatroom Chatroom { get; set; }
-        public virtual User User { get; set; }
+        internal virtual Chatroom Chatroom { get; set; }
+        internal virtual User User { get; set; }
+        
     }
 }

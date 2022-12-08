@@ -13,10 +13,10 @@ namespace WebApiAuthorization.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class AppDeminEntities : DbContext
+    public partial class user18Entities : DbContext
     {
-        public AppDeminEntities()
-            : base("name=AppDeminEntities")
+        public user18Entities()
+            : base("name=user18Entities")
         {
         }
     

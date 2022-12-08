@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Хранилище AppDeminModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Хранилище user18Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="ChatMessage">
           <Key>
             <PropertyRef Name="Id" />
@@ -12,7 +12,7 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IdUser" Type="int" />
           <Property Name="IdChatRoom" Type="int" />
-          <Property Name="TextMessage" Type="nvarchar" MaxLength="50" />
+          <Property Name="TextMessage" Type="nvarchar(max)" />
           <Property Name="DateTime" Type="datetime" />
         </EntityType>
         <EntityType Name="Chatroom">
@@ -20,7 +20,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Topic" Type="nvarchar" MaxLength="50" />
+          <Property Name="Topic" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="ChatroomEmployee">
           <Key>
@@ -35,7 +35,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="RoleUser" Type="nvarchar" MaxLength="50" />
+          <Property Name="RoleUser" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -52,9 +52,9 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="50" />
-          <Property Name="Login" Type="nvarchar" MaxLength="50" />
-          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Login" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
           <Property Name="IdRole" Type="int" />
         </EntityType>
         <Association Name="FK_ChatMessage_Chatroom">
@@ -117,7 +117,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Хранилище AppDeminModelContainer">
+        <EntityContainer Name="Хранилище user18ModelContainer">
           <EntitySet Name="ChatMessage" EntityType="Self.ChatMessage" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Chatroom" EntityType="Self.Chatroom" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ChatroomEmployee" EntityType="Self.ChatroomEmployee" Schema="dbo" store:Type="Tables" />
@@ -145,38 +145,11 @@
             <End Role="User" EntitySet="User" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="AppDeminModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityContainer Name="AppDeminEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="ChatMessage" EntityType="AppDeminModel.ChatMessage" />
-          <EntitySet Name="Chatroom" EntityType="AppDeminModel.Chatroom" />
-          <EntitySet Name="ChatroomEmployee" EntityType="AppDeminModel.ChatroomEmployee" />
-          <EntitySet Name="Role" EntityType="AppDeminModel.Role" />
-          <EntitySet Name="sysdiagrams" EntityType="AppDeminModel.sysdiagrams" />
-          <EntitySet Name="User" EntityType="AppDeminModel.User" />
-          <AssociationSet Name="FK_ChatMessage_Chatroom" Association="AppDeminModel.FK_ChatMessage_Chatroom">
-            <End Role="Chatroom" EntitySet="Chatroom" />
-            <End Role="ChatMessage" EntitySet="ChatMessage" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ChatMessage_User" Association="AppDeminModel.FK_ChatMessage_User">
-            <End Role="User" EntitySet="User" />
-            <End Role="ChatMessage" EntitySet="ChatMessage" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ChatroomEmployee_Chatroom" Association="AppDeminModel.FK_ChatroomEmployee_Chatroom">
-            <End Role="Chatroom" EntitySet="Chatroom" />
-            <End Role="ChatroomEmployee" EntitySet="ChatroomEmployee" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ChatroomEmployee_User" Association="AppDeminModel.FK_ChatroomEmployee_User">
-            <End Role="User" EntitySet="User" />
-            <End Role="ChatroomEmployee" EntitySet="ChatroomEmployee" />
-          </AssociationSet>
-          <AssociationSet Name="FK_User_Role" Association="AppDeminModel.FK_User_Role">
-            <End Role="Role" EntitySet="Role" />
-            <End Role="User" EntitySet="User" />
-          </AssociationSet>
-        </EntityContainer>
+      <Schema Namespace="user18Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="ChatMessage">
           <Key>
             <PropertyRef Name="Id" />
@@ -184,19 +157,19 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IdUser" Type="Int32" />
           <Property Name="IdChatRoom" Type="Int32" />
-          <Property Name="TextMessage" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TextMessage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="DateTime" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="Chatroom" Relationship="AppDeminModel.FK_ChatMessage_Chatroom" FromRole="ChatMessage" ToRole="Chatroom" />
-          <NavigationProperty Name="User" Relationship="AppDeminModel.FK_ChatMessage_User" FromRole="ChatMessage" ToRole="User" />
+          <NavigationProperty Name="Chatroom" Relationship="Self.FK_ChatMessage_Chatroom" FromRole="ChatMessage" ToRole="Chatroom" />
+          <NavigationProperty Name="User" Relationship="Self.FK_ChatMessage_User" FromRole="ChatMessage" ToRole="User" />
         </EntityType>
         <EntityType Name="Chatroom">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Topic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="ChatMessage" Relationship="AppDeminModel.FK_ChatMessage_Chatroom" FromRole="Chatroom" ToRole="ChatMessage" />
-          <NavigationProperty Name="ChatroomEmployee" Relationship="AppDeminModel.FK_ChatroomEmployee_Chatroom" FromRole="Chatroom" ToRole="ChatroomEmployee" />
+          <Property Name="Topic" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ChatMessage" Relationship="Self.FK_ChatMessage_Chatroom" FromRole="Chatroom" ToRole="ChatMessage" />
+          <NavigationProperty Name="ChatroomEmployee" Relationship="Self.FK_ChatroomEmployee_Chatroom" FromRole="Chatroom" ToRole="ChatroomEmployee" />
         </EntityType>
         <EntityType Name="ChatroomEmployee">
           <Key>
@@ -205,22 +178,22 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IdChatroom" Type="Int32" />
           <Property Name="IdUser" Type="Int32" />
-          <NavigationProperty Name="Chatroom" Relationship="AppDeminModel.FK_ChatroomEmployee_Chatroom" FromRole="ChatroomEmployee" ToRole="Chatroom" />
-          <NavigationProperty Name="User" Relationship="AppDeminModel.FK_ChatroomEmployee_User" FromRole="ChatroomEmployee" ToRole="User" />
+          <NavigationProperty Name="Chatroom" Relationship="Self.FK_ChatroomEmployee_Chatroom" FromRole="ChatroomEmployee" ToRole="Chatroom" />
+          <NavigationProperty Name="User" Relationship="Self.FK_ChatroomEmployee_User" FromRole="ChatroomEmployee" ToRole="User" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="RoleUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="User" Relationship="AppDeminModel.FK_User_Role" FromRole="Role" ToRole="User" />
+          <Property Name="RoleUser" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="User" Relationship="Self.FK_User_Role" FromRole="Role" ToRole="User" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
           </Key>
-          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="principal_id" Type="Int32" Nullable="false" />
           <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="version" Type="Int32" />
@@ -231,17 +204,17 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Login" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="IdRole" Type="Int32" />
-          <NavigationProperty Name="ChatMessage" Relationship="AppDeminModel.FK_ChatMessage_User" FromRole="User" ToRole="ChatMessage" />
-          <NavigationProperty Name="ChatroomEmployee" Relationship="AppDeminModel.FK_ChatroomEmployee_User" FromRole="User" ToRole="ChatroomEmployee" />
-          <NavigationProperty Name="Role" Relationship="AppDeminModel.FK_User_Role" FromRole="User" ToRole="Role" />
+          <NavigationProperty Name="ChatMessage" Relationship="Self.FK_ChatMessage_User" FromRole="User" ToRole="ChatMessage" />
+          <NavigationProperty Name="ChatroomEmployee" Relationship="Self.FK_ChatroomEmployee_User" FromRole="User" ToRole="ChatroomEmployee" />
+          <NavigationProperty Name="Role" Relationship="Self.FK_User_Role" FromRole="User" ToRole="Role" />
         </EntityType>
         <Association Name="FK_ChatMessage_Chatroom">
-          <End Type="AppDeminModel.Chatroom" Role="Chatroom" Multiplicity="0..1" />
-          <End Type="AppDeminModel.ChatMessage" Role="ChatMessage" Multiplicity="*" />
+          <End Role="Chatroom" Type="Self.Chatroom" Multiplicity="0..1" />
+          <End Role="ChatMessage" Type="Self.ChatMessage" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Chatroom">
               <PropertyRef Name="Id" />
@@ -252,8 +225,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ChatMessage_User">
-          <End Type="AppDeminModel.User" Role="User" Multiplicity="0..1" />
-          <End Type="AppDeminModel.ChatMessage" Role="ChatMessage" Multiplicity="*" />
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="ChatMessage" Type="Self.ChatMessage" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="User">
               <PropertyRef Name="Id" />
@@ -264,8 +237,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ChatroomEmployee_Chatroom">
-          <End Type="AppDeminModel.Chatroom" Role="Chatroom" Multiplicity="0..1" />
-          <End Type="AppDeminModel.ChatroomEmployee" Role="ChatroomEmployee" Multiplicity="*" />
+          <End Role="Chatroom" Type="Self.Chatroom" Multiplicity="0..1" />
+          <End Role="ChatroomEmployee" Type="Self.ChatroomEmployee" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Chatroom">
               <PropertyRef Name="Id" />
@@ -276,8 +249,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ChatroomEmployee_User">
-          <End Type="AppDeminModel.User" Role="User" Multiplicity="0..1" />
-          <End Type="AppDeminModel.ChatroomEmployee" Role="ChatroomEmployee" Multiplicity="*" />
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="ChatroomEmployee" Type="Self.ChatroomEmployee" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="User">
               <PropertyRef Name="Id" />
@@ -288,8 +261,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_User_Role">
-          <End Type="AppDeminModel.Role" Role="Role" Multiplicity="0..1" />
-          <End Type="AppDeminModel.User" Role="User" Multiplicity="*" />
+          <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Role">
               <PropertyRef Name="Id" />
@@ -299,67 +272,95 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        </Schema>
+        <EntityContainer Name="user18Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ChatMessage" EntityType="Self.ChatMessage" />
+          <EntitySet Name="Chatroom" EntityType="Self.Chatroom" />
+          <EntitySet Name="ChatroomEmployee" EntityType="Self.ChatroomEmployee" />
+          <EntitySet Name="Role" EntityType="Self.Role" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="User" EntityType="Self.User" />
+          <AssociationSet Name="FK_ChatMessage_Chatroom" Association="Self.FK_ChatMessage_Chatroom">
+            <End Role="Chatroom" EntitySet="Chatroom" />
+            <End Role="ChatMessage" EntitySet="ChatMessage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ChatMessage_User" Association="Self.FK_ChatMessage_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="ChatMessage" EntitySet="ChatMessage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ChatroomEmployee_Chatroom" Association="Self.FK_ChatroomEmployee_Chatroom">
+            <End Role="Chatroom" EntitySet="Chatroom" />
+            <End Role="ChatroomEmployee" EntitySet="ChatroomEmployee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ChatroomEmployee_User" Association="Self.FK_ChatroomEmployee_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="ChatroomEmployee" EntitySet="ChatroomEmployee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Role" Association="Self.FK_User_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище AppDeminModelContainer" CdmEntityContainer="AppDeminEntities">
+        <EntityContainerMapping StorageEntityContainer="Хранилище user18ModelContainer" CdmEntityContainer="user18Entities">
           <EntitySetMapping Name="ChatMessage">
-            <EntityTypeMapping TypeName="AppDeminModel.ChatMessage">
+            <EntityTypeMapping TypeName="user18Model.ChatMessage">
               <MappingFragment StoreEntitySet="ChatMessage">
-                <ScalarProperty Name="DateTime" ColumnName="DateTime" />
-                <ScalarProperty Name="TextMessage" ColumnName="TextMessage" />
-                <ScalarProperty Name="IdChatRoom" ColumnName="IdChatRoom" />
-                <ScalarProperty Name="IdUser" ColumnName="IdUser" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+                <ScalarProperty Name="IdChatRoom" ColumnName="IdChatRoom" />
+                <ScalarProperty Name="TextMessage" ColumnName="TextMessage" />
+                <ScalarProperty Name="DateTime" ColumnName="DateTime" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Chatroom">
-            <EntityTypeMapping TypeName="AppDeminModel.Chatroom">
+            <EntityTypeMapping TypeName="user18Model.Chatroom">
               <MappingFragment StoreEntitySet="Chatroom">
-                <ScalarProperty Name="Topic" ColumnName="Topic" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Topic" ColumnName="Topic" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ChatroomEmployee">
-            <EntityTypeMapping TypeName="AppDeminModel.ChatroomEmployee">
+            <EntityTypeMapping TypeName="user18Model.ChatroomEmployee">
               <MappingFragment StoreEntitySet="ChatroomEmployee">
-                <ScalarProperty Name="IdUser" ColumnName="IdUser" />
-                <ScalarProperty Name="IdChatroom" ColumnName="IdChatroom" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdChatroom" ColumnName="IdChatroom" />
+                <ScalarProperty Name="IdUser" ColumnName="IdUser" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Role">
-            <EntityTypeMapping TypeName="AppDeminModel.Role">
+            <EntityTypeMapping TypeName="user18Model.Role">
               <MappingFragment StoreEntitySet="Role">
-                <ScalarProperty Name="RoleUser" ColumnName="RoleUser" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="RoleUser" ColumnName="RoleUser" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="AppDeminModel.sysdiagrams">
+            <EntityTypeMapping TypeName="user18Model.sysdiagrams">
               <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="definition" ColumnName="definition" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
                 <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="User">
-            <EntityTypeMapping TypeName="AppDeminModel.User">
+            <EntityTypeMapping TypeName="user18Model.User">
               <MappingFragment StoreEntitySet="User">
-                <ScalarProperty Name="IdRole" ColumnName="IdRole" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="Login" ColumnName="Login" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="IdRole" ColumnName="IdRole" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

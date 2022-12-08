@@ -4,18 +4,18 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="6b87b5f4843e443ea52558fb6a0feb3d" Name="Diagram1" ZoomLevel="97">
-        <EntityTypeShape EntityType="AppDeminModel.ChatMessage" Width="1.5" PointX="5.25" PointY="0.75" />
-        <EntityTypeShape EntityType="AppDeminModel.Chatroom" Width="1.5" PointX="3" PointY="7.5" />
-        <EntityTypeShape EntityType="AppDeminModel.ChatroomEmployee" Width="1.5" PointX="5.25" PointY="4" />
-        <EntityTypeShape EntityType="AppDeminModel.Role" Width="1.5" PointX="0.75" PointY="4.125" />
-        <EntityTypeShape EntityType="AppDeminModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="7" />
-        <EntityTypeShape EntityType="AppDeminModel.User" Width="1.5" PointX="3" PointY="3.625" />
-        <AssociationConnector Association="AppDeminModel.FK_ChatMessage_Chatroom" />
-        <AssociationConnector Association="AppDeminModel.FK_ChatMessage_User" />
-        <AssociationConnector Association="AppDeminModel.FK_ChatroomEmployee_Chatroom" />
-        <AssociationConnector Association="AppDeminModel.FK_ChatroomEmployee_User" />
-        <AssociationConnector Association="AppDeminModel.FK_User_Role" />
+      <Diagram DiagramId="5c17e4f7d6ab4a41957a9e374f1305f7" Name="Diagram1">
+        <EntityTypeShape EntityType="user18Model.ChatMessage" Width="1.5" PointX="5.25" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="user18Model.Chatroom" Width="1.5" PointX="3" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="user18Model.ChatroomEmployee" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="user18Model.Role" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="user18Model.sysdiagrams" Width="1.5" PointX="5.75" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="user18Model.User" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
+        <AssociationConnector Association="user18Model.FK_ChatMessage_Chatroom" ManuallyRouted="false" />
+        <AssociationConnector Association="user18Model.FK_ChatMessage_User" ManuallyRouted="false" />
+        <AssociationConnector Association="user18Model.FK_ChatroomEmployee_Chatroom" ManuallyRouted="false" />
+        <AssociationConnector Association="user18Model.FK_ChatroomEmployee_User" ManuallyRouted="false" />
+        <AssociationConnector Association="user18Model.FK_User_Role" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
